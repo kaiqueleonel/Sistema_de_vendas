@@ -1,0 +1,9 @@
+# depslib dependency file v1.0
+1665089460 source:c:\users\kaiqu\onedrive\documentos\c++\sistema_de_vendas\main.cpp
+	<iostream>
+	<fstream>
+	<time.h>
+	<ctime>
+	<cstring>
+	<unistd.h>
+
