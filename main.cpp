@@ -63,6 +63,72 @@ typedef struct
 }
 login_aluno;
 
+typedef struct
+{
+    string usuario_adm;
+    int senha;
+} adm;
+
+void senha_da_loja()
+{
+    int senha[8];
+    for(int i = 0; i< 8; i++)
+        {
+            senha[i] = rand()%9;
+        }
+    ofstream senha_loja;
+    senha_loja.open("senha_loja.txt");
+    for(int i = 0; i < 8; i++)
+        {
+            senha_loja << senha[i];
+        }
+    senha_loja.close();
+}
+
+void administrador()
+{
+    adm admin, adm_login;
+    int aux;
+    cout << "Digite seu usuário: ";
+    fflush(stdin);
+    getline(cin,admin.usuario_adm);
+    system("cls");
+    cout << "Digite sua senha: ";
+    cin >> admin.senha;
+    system("cls");
+    ifstream login_adm;
+    login_adm.open("login_adm.txt");
+    fflush(stdin);
+    getline(login_adm,adm_login.usuario_adm);
+    login_adm >> adm_login.senha;
+    login_adm.close();
+    if( admin.usuario_adm == adm_login.usuario_adm && admin.senha == adm_login.senha)
+        {
+            cout << "Login concluido";
+            sleep(2);
+            system("cls");
+            cout << "Deseja criar a senha do usuario da loja? ( sim(1) não(2))";
+            cin >> aux;
+            switch(aux)
+                {
+                case(1):
+                    cout << "criando a senha...";
+                    sleep(5);
+                    system("cls");
+                    senha_da_loja();
+                    break;
+                case(2):
+                    cout << "Programa finalizado";
+                    exit;
+                    break;
+                default:
+                    break;
+                }
+
+        }
+
+}
+
 void login_de_usuario_funcionario()
 {
     cin.ignore();
@@ -171,7 +237,7 @@ void login_de_usuario_aluno()
 
 void funcao_cadastro_do_aluno()
 {
-    int aluno_cont = 0, lixo,aux = 0,ano, turno,curso;
+    int aluno_cont = 0, aux = 0,ano, turno,curso;
     ifstream pegar_alunos;
     pegar_alunos.open("cadastro_aluno.txt");
     pegar_alunos >> aluno_cont;
@@ -346,7 +412,7 @@ void tipo_de_usuario()
 {
     int cadastro_de_usuario, aux, finalizacao;
 
-    cout << "Com que tipo de usuário você deseja utilizar?  " << endl << "Aluno(1)" << endl << "Funcionário(2)" << endl << "Loja(3)" << endl;
+    cout << "Com que tipo de usuário você deseja utilizar?  " << endl << "Aluno(1)" << endl << "Funcionário(2)" << endl << "Loja(3)" << endl << "Administrdor(4)" << endl;
     cin >> cadastro_de_usuario;
     system("cls");
     switch(cadastro_de_usuario)
@@ -424,12 +490,17 @@ void tipo_de_usuario()
         case(3):
             cout << "EM DESENVOLVIMENTO";
             break;
+        case(4):
+            administrador();
+        default:
+            break;
         }
 }
 int main()
 {
     setlocale(LC_ALL,"Portuguese");
     srand(time(NULL));
+    senha_da_loja();
     tipo_de_usuario();
     return 0;
 }
