@@ -16,7 +16,6 @@ cadastro_produto;
 
 typedef struct
 {
-    int numero_usuario;
     string nome_do_aluno;
     char matricula[17];
     string senha;
@@ -47,40 +46,107 @@ typedef struct
 {
     string nome;
     string cargo;
-    char siap[8];
+    char siap[7];
 }
 cadastro_funcionario;
+
+typedef struct
+{
+    char matricula[17];
+    string senha;
+}
+login_aluno;
+
+void login_de_usuario_aluno()
+{
+    login_aluno login_aluno;
+    int quant_aluno = 0, aux;
+    cadastro_do_aluno aluno;
+    ifstream pegar_aluno;
+    pegar_aluno.open("cadastro_aluno.txt");
+    pegar_aluno >> quant_aluno;
+    for(int i = 0; i < quant_aluno; i++)
+        {
+            pegar_aluno >> aluno[i].nome_do_aluno;
+            pegar_aluno >> aluno[i].matricula;
+            pegar_aluno >> aluno[i].senha;
+            pegar_aluno >> aluno[i].nome_do_curso;
+            pegar_aluno >> aluno[i].turno;
+            pegar_aluno >> aluno[i].ano;
+        }
+    pegar_quant_aluno.close();
+    cout << "Digite sua matricula: ";
+    cin.getline(login_aluno.matricula, 18);
+    system("cls");
+    aux = strlen(login_aluno.matricula);
+    if( aux == 17)
+        {
+            cout << "Digite sua senha: ";
+            cin >> login_aluno.senha;
+            system("cls");
+            for( int i = 0; i < quant_aluno; i++)
+                {
+                    if(login_aluno.matricula == aluno[i].matricula && login_aluno.senha == aluno[i].senha) {}
+                    cout << "Login aprovado" << endl;
+                }
+            else
+                {
+                    cout << "Login não aprovado" << endl << "Faça o login novamente" << endl;
+                    sleep(2);
+                    system("cls");
+                    login_de_usuario_aluno();
+                }
+        }
+
+
+}
+
 void funcao_cadastro_do_aluno()
 {
-    cadastro_do_aluno aluno;
-    int aux = 0;
-    int ano, turno,curso;
+    int aluno_cont = 0, lixo,aux = 0,ano, turno,curso;
+    ifstream pegar_alunos;
+    pegar_alunos.open("cadastro_aluno.txt");
+    pegar_alunos >> aluno_cont;
+    aluno_cont++;
+    cadastro_do_aluno aluno[aluno_cont];
+    pegar_alunos >> lixo;
+    for (int i = 0; i < aluno_cont; i++)
+        {
+            pegar_alunos >> aluno[i].nome_do_aluno;
+            pegar_alunos >> aluno[i].matricula;
+            pegar_alunos >> aluno[i].senha;
+            pegar_alunos >> aluno[i].nome_do_curso;
+            pegar_alunos >> aluno[i].turno;
+            pegar_alunos >> aluno[i].ano;
+        }
+    pegar_alunos.close();
+
     system("cls");
-    cout << "informe o nome: ";
+    cout << "informe o nome:";
     fflush(stdin);
-    getline(cin, aluno.nome_do_aluno);
+    getline(cin, aluno[aluno_cont - 1].nome_do_aluno);
     system("cls");
     cout << "informe o numero da matricula: ";
-    cin.getline(aluno.matricula,18);
+    cin.getline(aluno[aluno_cont - 1].matricula,18);
     system("cls");
-    aux = strlen(aluno.matricula);
+    aux = strlen(aluno[aluno_cont - 1].matricula);
     if(aux == 17)
         {
             cout << "informe a senha: ";
-            cin >> aluno.senha;
+            cin >> aluno[aluno_cont - 1].senha;
             system("cls");
-            cout << "informe o nome do curso (Infirmática(1); Controle Ambiental (2); Administração(3)): " << endl;
+            cout << "informe o nome do curso" << endl <<"Infirmática(1)" << endl << "Controle Ambiental (2)" <<  endl <<"Administração(3)" << endl;
             cin >> curso;
             switch(curso)
                 {
                 case(1):
-                    aluno.nome_do_curso = "Informatica";
+                    aluno[aluno_cont - 1].nome_do_curso = "Informatica";
                     break;
                 case(2):
-                    aluno.nome_do_curso = "Controle Ambiental";
+                    aluno[aluno_cont - 1].nome_do_curso = "Controle Ambiental";
                     break;
                 case(3):
-                    aluno.nome_do_curso = "Administração";
+                    aluno[aluno_cont - 1].nome_do_curso = "Administração";
                     break;
                 default:
                     cout << "Curso não encontrado" << endl;
@@ -92,10 +158,10 @@ void funcao_cadastro_do_aluno()
             switch(turno)
                 {
                 case(1):
-                    aluno.turno = "Matutino";
+                    aluno[aluno_cont - 1].turno = "Matutino";
                     break;
                 case(2):
-                    aluno.turno = "Vespertino";
+                    aluno[aluno_cont - 1].turno = "Vespertino";
                     break;
                 default:
                     cout << "O turno está errado" << endl;
@@ -107,29 +173,31 @@ void funcao_cadastro_do_aluno()
             switch(ano)
                 {
                 case (1):
-                    aluno.ano = "1°ano";
+                    aluno[aluno_cont - 1].ano = "1°ano";
                     break;
                 case (2):
-                    aluno.ano = "2°ano";
+                    aluno[aluno_cont - 1].ano = "2°ano";
                     break;
                 case (3):
-                    aluno.ano = "3°ano";
+                    aluno[aluno_cont - 1].ano = "3°ano";
                     break;
                 default:
                     cout << "O ano que está cursando é invalido" << endl;
                     break;
                 }
             system("cls");
-            aluno.numero_usuario++;
             ofstream cdt_aluno;
-            cdt_aluno.open("aluno_cadastrado");
-            cdt_aluno << aluno.numero_usuario << endl;
-            cdt_aluno << aluno.nome_do_aluno << endl;
-            cdt_aluno << aluno.matricula << endl;
-            cdt_aluno << aluno.senha << endl;
-            cdt_aluno << aluno.nome_do_curso << endl;
-            cdt_aluno << aluno.turno << endl;
-            cdt_aluno << aluno.ano << endl;
+            cdt_aluno.open("cadastro_aluno.txt");
+            cdt_aluno << aluno_cont << endl;
+            for(int i = 0; i < aluno_cont; i++)
+                {
+                    cdt_aluno << aluno[i].nome_do_aluno << endl;
+                    cdt_aluno << aluno[i].matricula << endl;
+                    cdt_aluno << aluno[i].senha << endl;
+                    cdt_aluno << aluno[i].nome_do_curso << endl;
+                    cdt_aluno << aluno[i].turno << endl;
+                    cdt_aluno << aluno[i].ano << endl;
+                }
             cdt_aluno.close();
         }
     else
@@ -141,31 +209,51 @@ void funcao_cadastro_do_aluno()
         }
 }
 
-
 void funcao_cadastro_de_funcionario()
 {
-    cadastro_funcionario funcionario;
+
+
     int aux = 0;
+    int quant_funcionario = 0, lixo;
+    ifstream pegar_quant_funcionario;
+    pegar_quant_funcionario.open("cadastro_de_funcionario.txt");
+    pegar_quant_funcionario >> quant_funcionario;
+    pegar_quant_funcionario.close();
+    quant_funcionario++;
+    cadastro_funcionario funcionario[quant_funcionario];
+    ifstream pegar_cadastro;
+    pegar_cadastro.open("cadastro_de_funcionario.txt");
+    pegar_cadastro >> lixo;
+    for(int i = 0; i < quant_funcionario; i++)
+        {
+            pegar_cadastro >> funcionario[i].nome;
+            pegar_cadastro >> funcionario[i].cargo;
+            pegar_cadastro >> funcionario[i].siap;
+        }
+    pegar_cadastro.close();
     system("cls");
     cout << "Informe seu nome: ";
-    cin >> funcionario.nome;
+    cin >> funcionario[quant_funcionario - 1].nome;
     system("cls");
     cout << "Informe o seu cargo: ";
-    cin >> funcionario.cargo;
+    cin >> funcionario[quant_funcionario - 1].cargo;
     system("cls");
     cout << "Informe seu SIAP: ";
-    //o cin. getline está dando erro, ainda não encontrado
-    cin.getline(funcionario.siap,8);
+    cin.ignore();//perguntar como esse comando funciona direito
+    cin.getline(funcionario[quant_funcionario - 1].siap,8);
     system("cls");
-    aux = strlen(funcionario.siap);
-    cout << aux << endl;
+    aux = strlen(funcionario[quant_funcionario - 1].siap);
     if(aux == 7)
         {
             ofstream cada_funcionario;
-            cada_funcionario.open("cadastro_de_funcionario");
-            cada_funcionario << funcionario.nome << endl;
-            cada_funcionario << funcionario.cargo << endl;
-            cada_funcionario << funcionario.siap << endl;
+            cada_funcionario.open("cadastro_de_funcionario.txt");
+            cada_funcionario << quant_funcionario << endl;
+            for(int i = 0; i < quant_funcionario; i++)
+                {
+                    cada_funcionario << funcionario[i].nome << endl;
+                    cada_funcionario << funcionario[i].cargo << endl;
+                    cada_funcionario << funcionario[i].siap << endl;
+                }
             cada_funcionario.close();
         }
     else
@@ -177,11 +265,12 @@ void funcao_cadastro_de_funcionario()
         }
 
 }
+
 void tipo_de_usuario()
 {
     int cadastro_de_usuario, aux, finalizacao;
 
-    cout << "Com que tipo de usuário você deseja utilizar? (digite um dos nomes) " << endl << "Aluno(1)" << endl << "Funcionário(2)" << endl << "Loja(3)" << endl;
+    cout << "Com que tipo de usuário você deseja utilizar?  " << endl << "Aluno(1)" << endl << "Funcionário(2)" << endl << "Loja(3)" << endl;
     cin >> cadastro_de_usuario;
     system("cls");
     switch(cadastro_de_usuario)
