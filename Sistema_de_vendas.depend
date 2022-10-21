@@ -1,9 +1,63 @@
 # depslib dependency file v1.0
-1665408176 source:c:\users\kaiqu\onedrive\documentos\c++\sistema_de_vendas\main.cpp
+1666353349 source:c:\users\kaiqu\onedrive\documentos\c++\sistema_de_vendas\main.cpp
 	<iostream>
 	<fstream>
 	<time.h>
 	<ctime>
 	<cstring>
 	<unistd.h>
+	"tipo_de_usuario.h"
+	"funcionario.h"
+	"aluno.h"
+	"cadastro_produto.h"
+	"administrador.h"
+
+1666353770 source:c:\users\kaiqu\onedrive\documentos\c++\sistema_de_vendas\funcionario.cpp
+	"bibliotecas.h"
+
+1666353770 source:c:\users\kaiqu\onedrive\documentos\c++\sistema_de_vendas\aluno.cpp
+	"bibliotecas.h"
+
+1666353770 source:c:\users\kaiqu\onedrive\documentos\c++\sistema_de_vendas\administrdor.cpp
+	"bibliotecas.h"
+
+1666353770 source:c:\users\kaiqu\onedrive\documentos\c++\sistema_de_vendas\cadastro_produto.cpp
+	"bibliotecas.h"
+
+1666351693 c:\users\kaiqu\onedrive\documentos\c++\sistema_de_vendas\tipo_de_usuario.h
+	<unistd.h>
+
+1666352033 c:\users\kaiqu\onedrive\documentos\c++\sistema_de_vendas\funcionario.h
+	<unistd.h>
+	<fstream>
+	<cstring>
+
+1666353770 c:\users\kaiqu\onedrive\documentos\c++\sistema_de_vendas\aluno.h
+
+1666353349 c:\users\kaiqu\onedrive\documentos\c++\sistema_de_vendas\cadastro_produto.h
+
+1666353349 c:\users\kaiqu\onedrive\documentos\c++\sistema_de_vendas\administrador.h
+
+1666353770 source:c:\users\kaiqu\onedrive\documentos\c++\sistema_de_vendas\loja.cpp
+	"bibliotecas.h"
+
+1666353770 source:c:\users\kaiqu\onedrive\documentos\c++\sistema_de_vendas\tipo_de_usuario.cpp
+	"bibliotecas.h"
+	"aluno.h"
+	"funcionario.h"
+	"administrador.h"
+
+1666353770 source:c:\users\kaiqu\onedrive\documentos\c++\sistema_de_vendas\forma_de_pagamento.cpp
+	"bibliotecas.h"
+
+1666353770 c:\users\kaiqu\onedrive\documentos\c++\sistema_de_vendas\bibliotecas.h
+	<iostream>
+	<fstream>
+	<time.h>
+	<ctime>
+	<cstring>
+	<unistd.h>
+
+1666354294 source:c:\users\kaiqu\onedrive\documentos\c++\sistema_de_vendas\pedido.cpp
+	"bibliotecas.h"
 

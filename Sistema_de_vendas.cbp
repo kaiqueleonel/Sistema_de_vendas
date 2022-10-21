@@ -32,7 +32,24 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="administrador.h" />
+		<Unit filename="administrdor.cpp" />
+		<Unit filename="aluno.cpp" />
+		<Unit filename="aluno.h" />
+		<Unit filename="bibliotecas.h" />
+		<Unit filename="cadastro_produto.cpp" />
+		<Unit filename="cadastro_produto.h" />
+		<Unit filename="forma_de_pagamento.cpp" />
+		<Unit filename="forma_de_pagamento.h" />
+		<Unit filename="funcionario.cpp" />
+		<Unit filename="funcionario.h" />
+		<Unit filename="loja.cpp" />
+		<Unit filename="loja.h" />
 		<Unit filename="main.cpp" />
+		<Unit filename="pedido.cpp" />
+		<Unit filename="pedido.h" />
+		<Unit filename="tipo_de_usuario.cpp" />
+		<Unit filename="tipo_de_usuario.h" />
 		<Extensions>
 			<lib_finder disable_auto="1" />
 		</Extensions>
