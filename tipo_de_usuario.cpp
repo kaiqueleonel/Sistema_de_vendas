@@ -2,6 +2,7 @@
 #include "aluno.h"
 #include "funcionario.h"
 #include "administrador.h"
+#include "loja.h"
 using namespace std;
 
 void tipo_de_usuario()
@@ -84,7 +85,46 @@ void tipo_de_usuario()
                 }
             break;
         case(3):
-            cout << "EM DESENVOLVIMENTO";
+            cout << "Já tem usuário cadastrado? (sim(1) não(2))" << endl;
+            cin >> aux;
+            switch(aux)
+                {
+                case(1):
+                    cout << "Deseja fazer o login? (sim(1) não(2))" << endl;
+                    cin >> aux;
+                    switch(aux)
+                        {
+                        case(1):
+                            login_loja();
+                            break;
+                        case(2):
+                            cout << "Programa finalizado";
+                            exit;
+                            break;
+                        default:
+                            break;
+                        }
+                    break;
+                case(2):
+                    cout << "Deseja cadastrar um usuário? (sim(1) não(2))" << endl;
+                    cin >>  aux;
+                    switch(aux)
+                        {
+                        case(1):
+                            cadastro_loja();
+                            break;
+                        case(2):
+                            cout << "Programa finalizado";
+                            exit;
+                            break;
+                        default:
+                            break;
+                        }
+                    break;
+                default:
+                    break;
+                }
+            cadastro_loja();
             break;
         case(4):
             administrador();

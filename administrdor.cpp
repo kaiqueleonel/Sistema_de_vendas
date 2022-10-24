@@ -11,38 +11,26 @@ adm;
 
 void senha_da_loja()
 {
-    int quant_senha, senha;
-    ifstream salva_senha;
-    salva_senha.open("senha_loja.txt");
-    salva_senha >> quant_senha;
-    quant_senha++;
-    int senha_mat[quant_senha][8];
-    for (int i = 0; i < quant_senha; i++)
-        {
-            for(int j = 0; j < 8; j++)
-                {
-                    salva_senha >> senha_mat[i][j];
-                }
-        }
-    salva_senha.close();
+    int senha_mat[8];
     for(int i = 0; i < 8; i++)
         {
-            senha_mat[quant_senha - 1][i] = rand()%9;
-            senha = senha_mat[quant_senha - 1][i];
+            senha_mat[i] = rand()%9;
         }
-    cout << "Senha criado" << endl;
-    cout << "A senha eh: " <<  senha << endl;
+    cout << "Senha criada" << endl;
+    sleep(2);
+    system("cls");
+    cout << "A senha eh: ";
+    for (int i = 0; i < 8; i++){
+        cout << senha_mat[i];
+    }
     sleep(10);
     system("cls");
     ofstream senha_loja;
     senha_loja.open("senha_loja.txt");
-    for(int i = 0; i < quant_senha; i++)
-        {
-            for(int j = 0; j < 8; j++)
-                {
-                    senha_loja << senha_mat[i][j];
-                }
-        }
+    for(int i = 0; i < 8; i++){
+         senha_loja << senha_mat[i];
+    }
+    senha_loja << endl;
     senha_loja.close();
 }
 
@@ -87,7 +75,8 @@ void administrador()
                     break;
                 }
         }
-        else{
+    else
+        {
             cout << "Login invalido" << endl << "Faça o login novamente";
             sleep(2);
             system("cls");

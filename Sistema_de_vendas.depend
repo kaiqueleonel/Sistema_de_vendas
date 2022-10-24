@@ -1,16 +1,7 @@
 # depslib dependency file v1.0
-1666353349 source:c:\users\kaiqu\onedrive\documentos\c++\sistema_de_vendas\main.cpp
-	<iostream>
-	<fstream>
-	<time.h>
-	<ctime>
-	<cstring>
-	<unistd.h>
+1666354314 source:c:\users\kaiqu\onedrive\documentos\c++\sistema_de_vendas\main.cpp
+	"bibliotecas.h"
 	"tipo_de_usuario.h"
-	"funcionario.h"
-	"aluno.h"
-	"cadastro_produto.h"
-	"administrador.h"
 
 1666353770 source:c:\users\kaiqu\onedrive\documentos\c++\sistema_de_vendas\funcionario.cpp
 	"bibliotecas.h"
@@ -18,10 +9,10 @@
 1666353770 source:c:\users\kaiqu\onedrive\documentos\c++\sistema_de_vendas\aluno.cpp
 	"bibliotecas.h"
 
-1666353770 source:c:\users\kaiqu\onedrive\documentos\c++\sistema_de_vendas\administrdor.cpp
+1666571148 source:c:\users\kaiqu\onedrive\documentos\c++\sistema_de_vendas\administrdor.cpp
 	"bibliotecas.h"
 
-1666353770 source:c:\users\kaiqu\onedrive\documentos\c++\sistema_de_vendas\cadastro_produto.cpp
+1666570461 source:c:\users\kaiqu\onedrive\documentos\c++\sistema_de_vendas\cadastro_produto.cpp
 	"bibliotecas.h"
 
 1666351693 c:\users\kaiqu\onedrive\documentos\c++\sistema_de_vendas\tipo_de_usuario.h
@@ -38,14 +29,16 @@
 
 1666353349 c:\users\kaiqu\onedrive\documentos\c++\sistema_de_vendas\administrador.h
 
-1666353770 source:c:\users\kaiqu\onedrive\documentos\c++\sistema_de_vendas\loja.cpp
+1666571923 source:c:\users\kaiqu\onedrive\documentos\c++\sistema_de_vendas\loja.cpp
 	"bibliotecas.h"
+	"cadastro_produto.h"
 
-1666353770 source:c:\users\kaiqu\onedrive\documentos\c++\sistema_de_vendas\tipo_de_usuario.cpp
+1666571298 source:c:\users\kaiqu\onedrive\documentos\c++\sistema_de_vendas\tipo_de_usuario.cpp
 	"bibliotecas.h"
 	"aluno.h"
 	"funcionario.h"
 	"administrador.h"
+	"loja.h"
 
 1666353770 source:c:\users\kaiqu\onedrive\documentos\c++\sistema_de_vendas\forma_de_pagamento.cpp
 	"bibliotecas.h"
@@ -60,4 +53,6 @@
 
 1666354294 source:c:\users\kaiqu\onedrive\documentos\c++\sistema_de_vendas\pedido.cpp
 	"bibliotecas.h"
+
+1666570095 c:\users\kaiqu\onedrive\documentos\c++\sistema_de_vendas\loja.h
 
